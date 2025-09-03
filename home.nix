@@ -43,6 +43,7 @@
     vscode
     osu-lazer
     alejandra
+    floorp
   ];
   home.stateVersion = "25.05";
 }
