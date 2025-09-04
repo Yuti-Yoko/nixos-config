@@ -22,6 +22,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  environment.variables.EDITOR = "vim";
+
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -125,6 +127,9 @@
     wget
     helix
     flatpak-builder
+    haskell.compiler.ghc98
+    clang-tools
+    neofetch
   ];
 
   virtualisation = {

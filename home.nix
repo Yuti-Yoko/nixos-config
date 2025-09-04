@@ -33,7 +33,6 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
-    neofetch
     telegram-desktop
     thunderbird
     inetutils
@@ -44,6 +43,7 @@
     osu-lazer
     alejandra
     floorp
+    termius
   ];
   home.stateVersion = "25.05";
 }
