@@ -18,6 +18,13 @@
   networking.hostName = "ilumix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
+  networking.extraHosts = ''
+    127.0.0.1       localhost
+    ::1             localhost
+    127.0.0.2       nixos
+    192.168.10.8    tg.eskiz.uz
+  '';
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -83,19 +90,6 @@
     ];
   };
 
-  # Zsh configuration
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-
-    # Oh My Zsh configuration
-    ohMyZsh = {
-      enable = true;
-    };
-  };
-
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -130,6 +124,8 @@
     haskell.compiler.ghc98
     clang-tools
     neofetch
+    alacritty
+    bat
   ];
 
   virtualisation = {
@@ -161,6 +157,7 @@
 
   programs.starship.enable = true;
   programs.direnv.enable = true;
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -1,7 +1,9 @@
 {pkgs, ...}: {
   imports = [
     ./modules/home/zed.nix
+    ./modules/home/zsh.nix
     #./home/modules/alacritty.nix
+    #./modules/home/terminal.nix
   ];
   # TODO please change the username & home directory to your own
   home.username = "ilumix";
@@ -44,6 +46,7 @@
     alejandra
     floorp
     termius
+    ifuse
   ];
   home.stateVersion = "25.05";
 }
