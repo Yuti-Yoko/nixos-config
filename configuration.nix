@@ -126,6 +126,7 @@
     neofetch
     alacritty
     bat
+    aria2
   ];
 
   virtualisation = {
@@ -149,15 +150,37 @@
     };
   };
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+
+    # Alias
+    shellAliases = {
+      cat = "bat";
+      gs = "git status";
+      zed = "zeditor";
+      move = "mv";
+      ":q" = "exit";
+      ".." = "cd ..";
+    };
+
+    # Oh My Zsh
+    ohMyZsh = {
+      enable = true;
+    };
+  };
+
   fonts.packages = with pkgs; [
     iosevka
     mononoki
     jetbrains-mono
+    nerd-fonts.jetbrains-mono
   ];
 
   programs.starship.enable = true;
   programs.direnv.enable = true;
-  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./modules/home/zed.nix
-    ./modules/home/zsh.nix
+    #./modules/home/zsh.nix
     #./home/modules/alacritty.nix
     #./modules/home/terminal.nix
   ];
