@@ -47,6 +47,7 @@
     floorp
     termius
     ifuse
+    prismlauncher
   ];
   home.stateVersion = "25.05";
 }
