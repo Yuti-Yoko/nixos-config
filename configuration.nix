@@ -15,14 +15,27 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Nvidia
+  # Nvidia configuration
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
+
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
-    powerManagement.finegrained = false;
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.latest;
+
+    prime = {
+      offload.enable = false;
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   networking.hostName = "ilumix"; # Define your hostname.
@@ -137,7 +150,11 @@
     alacritty
     bat
     aria2
+    vulkan-tools
+    nvidia-vaapi-driver
   ];
+
+  programs.steam.enable = true;
 
   virtualisation = {
     libvirtd = {
