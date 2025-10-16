@@ -48,6 +48,8 @@
     termius
     ifuse
     prismlauncher
+    gimp3
+	jami
   ];
   home.stateVersion = "25.05";
 }

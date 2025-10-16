@@ -113,10 +113,10 @@
 
     soft_wrap = "editor_width";
 
-    buffer_font_size = 22;
+    buffer_font_size = 17;
     buffer_font_family = "mononoki";
 
-    ui_font_size = 20;
+    ui_font_size = 16;
     ui_font_family = "mononoki";
 
     confirm_quit = false;
