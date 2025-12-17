@@ -44,12 +44,16 @@
     vscode
     osu-lazer
     alejandra
-    floorp
+    floorp-bin
     termius
     ifuse
     prismlauncher
     gimp3
     jami
+    protonup-qt
+    libreoffice-qt6
+    flameshot
+    chromium
   ];
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
