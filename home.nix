@@ -54,6 +54,7 @@
     libreoffice-qt6
     flameshot
     chromium
+    wireguard-tools
   ];
   home.stateVersion = "25.11";
 }

@@ -1,45 +1,18 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
   pkgs,
   ...
 }: {
-  imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Nvidia configuration
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
-
-    prime = {
-      offload.enable = false;
-      sync.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-    };
-  };
-
-  networking.hostName = "ilumix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # hardware.graphics = {
+  #   enable = true;
+  #   enable32Bit = true;
+  # };
+  nix.settings.trusted-users = ["root" "ilumix"];
 
   networking.extraHosts = ''
     127.0.0.1       localhost
@@ -48,10 +21,6 @@
     192.168.10.8    tg.eskiz.uz
   '';
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   environment.variables.EDITOR = "vim";
 
   # Enable networking
@@ -59,9 +28,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Tashkent";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8"; # or change to "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
   i18n.defaultLocale = "en_US.UTF-8"; # or change to "en_US.UTF-8" or "ru_RU.UTF-8" or "uz_UZ.UTF-8"
 
@@ -150,8 +116,8 @@
     alacritty
     bat
     aria2
-    vulkan-tools
-    nvidia-vaapi-driver
+    #  vulkan-tools
+    #  nvidia-vaapi-driver
   ];
 
   programs.steam.enable = true;
