@@ -18,17 +18,9 @@
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
+    pkgs = import nixpkgs {inherit system;};
   in {
-    devShells.${system}.default = pkgs.mkShell {
-      name = "nix-dev-shell";
-      buildInputs = [pkgs.alejandra];
-      shellHook = ''
-        echo "Welcome to the Nix dev shell with Alejandra formatter!"
-      '';
-    };
+    devShells.${system}.default = import ./shell.nix {inherit pkgs input;};
 
     nixosConfigurations = {
       ilumix = nixpkgs.lib.nixosSystem {
